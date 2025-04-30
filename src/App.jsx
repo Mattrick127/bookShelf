@@ -4,9 +4,11 @@ import AddBookPage from './views/AddBookPage.jsx';
 
 function App() {
 
+  const isAddBook = false;
+
   return (
     <>
-      <BooksPage />
+      {isAddBook ? <AddBookPage /> : <BooksPage />}
         
     </>
   )
