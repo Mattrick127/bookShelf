@@ -13,10 +13,11 @@ function Header({pageTitle}) {
                         Books
                     </button>
 
-
-                    <button className="btn">
-                        Add Book +
-                    </button>
+                    <a href="/add-book">
+                      <button className="btn">
+                          Add Book +
+                      </button>
+                    </a>
                
             </div>
     
