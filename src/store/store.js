@@ -1,8 +1,9 @@
 import { configureStore } from '@redux/toolkit'
-import counterReducer from '../features/counter/counterSlice'
+import booksReducer from './booksSlice.js';
+
 
 export default configureStore({
     reducer: {
-        counter: counterRedcuer
+        books: booksReducer 
     }
 })
