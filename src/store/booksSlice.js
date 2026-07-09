@@ -51,16 +51,15 @@ export const booksSlice = createSlice({
       // immutable state based off those changes
 
       // add logic to add books
-      state.value += 1
     },
-    eraseBook: (books, action)=> {
+    eraseBook: (books, action) => {
         return books.filter(book => book.id != action.payload);
     }
   }
 })
 
 // Export the generated action creators for use in components
-export const { addBook } = booksSlice.actions;
+export const { addBook, eraseBook } = booksSlice.actions;
 
 export const selectBooks = state => state.books;
 
