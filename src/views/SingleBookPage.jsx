@@ -29,31 +29,40 @@ function SingleBookPage() {
                     ← Back to Books
                 </button>
                 </Link>
-            
-            <div className="single-book">
-                    <div className="book-cover">
-                        <img src={book.cover} />
-                    </div>
 
-                    <div className="book-details">
-                        <h3 className="book-title">{ book.title }</h3>
-                        <h4 className="book-author">{ book.author }</h4>
-                        <p>{book.synopsis}</p>
-                        <div className="read-checkbox">
-                            <input type="checkbox" defaultChecked={book.isRead} />
-                            <label>{ book.isRead ? "Already Read It" : "Haven't Read it yet" }</label>
+            {book ? 
+             <div>
+                <div className="single-book">
+                        <div className="book-cover">
+                            <img src={book.cover} />
                         </div>
-                        <div onClick={()=>handleEraseBook(book.id)} className="erase-book">
-                            Erase book
+
+                        <div className="book-details">
+                            <h3 className="book-title">{ book.title }</h3>
+                            <h4 className="book-author">{ book.author }</h4>
+                            <p>{book.synopsis}</p>
+                            <div className="read-checkbox">
+                                <input type="checkbox" defaultChecked={book.isRead} />
+                                <label>{ book.isRead ? "Already Read It" : "Haven't Read it yet" }</label>
+                            </div>
+                            <div onClick={()=>handleEraseBook(book.id)} className="erase-book">
+                                Erase book
+                            </div>
                         </div>
-                    </div>
+                </div>
+
+                <Notes />
+
             </div>
+            
+            :
 
-            <Notes />
+            <div>
+                <p>Book no found Click the button above to go back to the list of books.</p>
+            </div>}
 
+            
         </div>
-
-        
       </>
     )
   }
