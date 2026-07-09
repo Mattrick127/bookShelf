@@ -1,13 +1,14 @@
 import { useParams, Link } from 'react-router-dom';
 import Notes from '../components/Notes.jsx'
-import { useSelector } from 'react-redux';
-import { selectBooks } from '../store/booksSlice.js';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectBooks, eraseBook } from '../store/booksSlice.js';
 
 function SingleBookPage() {
 
+    const dispatch = useDispatch();
     function handleEraseBook(id) {
         if(confirm('Are you sure you want to erase this book?')){
-
+            dispatch(eraseBook(book.id));
         }
     }
 
