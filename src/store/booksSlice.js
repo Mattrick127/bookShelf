@@ -66,6 +66,8 @@ export const booksSlice = createSlice({
 // Export the generated action creators for use in components
 export const { addBook } = booksSlice.actions;
 
+export const selectBooks = state => state.books;
+
 
 // Export the slice reducer for use in the store configuration
 export default booksSlice.reducer;
