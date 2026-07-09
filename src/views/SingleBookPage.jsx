@@ -5,6 +5,11 @@ import { selectBooks } from '../store/booksSlice.js';
 
 function SingleBookPage() {
 
+    function handleEraseBook(id) {
+        if(confirm('Are you sure you want to erase this book?')){
+
+        }
+    }
 
     const {id} = useParams();
 
@@ -34,7 +39,7 @@ function SingleBookPage() {
                             <input type="checkbox" defaultChecked={book.isRead} />
                             <label>{ book.isRead ? "Already Read It" : "Haven't Read it yet" }</label>
                         </div>
-                        <div className="erase-book">
+                        <div onClick={()=>handleEraseBook(book.id)} className="erase-book">
                             Erase book
                         </div>
                     </div>

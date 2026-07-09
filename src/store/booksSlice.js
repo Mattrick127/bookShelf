@@ -53,12 +53,8 @@ export const booksSlice = createSlice({
       // add logic to add books
       state.value += 1
     },
-    decrement: state => {
-      state.value -= 1
-    },
-    // Use the PayloadAction type to declare the contents of `action.payload`
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+    eraseBook: (books, action)=> {
+        return books.filter(book => book.id != action.payload);
     }
   }
 })
