@@ -54,12 +54,19 @@ export const booksSlice = createSlice({
     },
     eraseBook: (books, action) => {
         return books.filter(book => book.id != action.payload);
+    },
+    toggleRead: (books, action) => {
+        books.map(book => {
+          if (book.id == action.payload) {
+            book.isRead = !book.isRead;
+          }
+        });
     }
   }
 })
 
 // Export the generated action creators for use in components
-export const { addBook, eraseBook } = booksSlice.actions;
+export const { addBook, eraseBook, toggleRead } = booksSlice.actions;
 
 export const selectBooks = state => state.books;
 
