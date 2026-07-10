@@ -21,7 +21,7 @@ function AddBookPage() {
         }
 
         if (newBook.title && newBook.cover && newBook.author) { 
-                
+            dispatch(addBook(newBook));
             alert('book created');
             navigate("/");
         } else {
