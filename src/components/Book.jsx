@@ -1,13 +1,19 @@
 import { Link } from 'react-router-dom';
-  function Book({book}) {
-    
-  function handleToggleRead(e, id) {
-    e.preventDefault();
-  }
+import { useDispatch } from 'react-redux';
+import { toggleRead } from '../store/booksSlice.js';
 
-  return (
-    <>
-        <Link to={'/book/' + book.id}>
+function Book({book}) {
+
+    const dispatch = useDispatch();
+    
+    function handleToggleRead(e, id) {
+        e.preventDefault();
+        dispatch(toggleRead(id));
+    }
+
+    return (
+        <>
+         <Link to={'/book/' + book.id}>
             <div className="book">
                 {
                     book.isRead && 
