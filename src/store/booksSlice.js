@@ -44,7 +44,11 @@ export const booksSlice = createSlice({
   ],
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    addBook: books => {
+    addBook: (books, action) => {
+      let newBook = action.payload;
+      newBook.id = books.length ? Math.max(...books.map(book => book.id)) + 1 : 1; 
+      books.push(newBook);
+
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
