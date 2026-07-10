@@ -1,79 +1,42 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-// Slices contain Redux reducer logic for updating state, and
-// generate actions that can be dispatched to trigger those updates.
-export const booksSlice = createSlice({
-  name: 'books',
+export const notesSlice = createSlice({
+  name: 'notes',
   initialState: [
-    {
-      id: 1,
-      title: "A Short History of Europe",
-      cover:
-        "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1535542619i/40772628.jpg",
-      isRead: true,
-      author: "Simon Jenkins",
-      synopsis: "In this dazzling new history, bestselling author Simon Jenkins grippingly tells the story of its evolution from warring peoples to peace, wealth and freedom - a story that twists and turns from Greece and Rome, through the Dark Ages, the Reformation and the French Revolution, to the Second World War and up to the present day."
-    },
-    {
-      id: 2,
-      title: "Penguin Classics",
-      cover:
-        "https://m.media-amazon.com/images/I/91cKrZxBuwL._AC_UF1000,1000_QL80_.jpg",
-      isRead: false,
-      author: "Henry Eliot",
-      synopsis: "The Penguin Classics Book covers all the greatest works of fiction, poetry, drama, history, and philosophy in between, this reader's companion encompasses 500 authors, 1,200 books, and 4,000 years of world literature, from ancient Mesopotamia to World War I."
-    },
-    {
-      id: 3,
-      title: "Becoming",
-      cover:
-        "https://m.media-amazon.com/images/I/81-6EJJzxvL.jpg",
-      isRead: false,
-      author: "Michelle Obama",
-      synopsis: "“Becoming” is an autobiography detailing the highs and lows of Michelle Obama's incredible journey from humble beginnings in the less glamourous South Side of Chicago, to the grandeur of the White House and life as America's first African-American First Lady."
-    },
-    {
-      id: 4,
-      title: "Sonnets",
-      cover:
-        "https://m.media-amazon.com/images/I/715hva4FrAL._AC_UF1000,1000_QL80_.jpg",
-      isRead: false,
-      author: "James Anthony",
-      synopsis: "Shakespeare wrote 154 sonnets published in his 'quarto' in 1609, covering themes such as the passage of time, mortality, love, beauty, infidelity, and jealousy. The first 126 of Shakespeare's sonnets are addressed to a young man, and the last 28 addressed to a woman – a mysterious 'dark lady'."
-    }
-  ],
-  // The `reducers` field lets us define reducers and generate associated actions
+        {
+          id: 1,
+          book_id: 1,
+          title:"Page 18 - On Europe's Decline",
+          text: "The leading states of the European Union, and in particular of the eurozone, were dogged by a growing sense of decline. Their production systems and their societies that were said to be in decline, rather than Europe as a whole."
+        },
+        {
+          id: 2,
+          book_id: 1,
+          title:"Page 55 - Treaty on Friendship and Cooperation",
+          text: "The Portuguese and Spanish Governments signed the Treaty on Friendship and Cooperation at the 32nd Luso-Spanish Summit held in Trujillo in October 2021. This followed on from the commitment undertaken at the Guarda Summit in October 2020."
+        },
+        {
+          id: 3,
+          book_id: 2,
+          title:"Page 61 - On Mesopotamia",
+          text: "Jane R. McIntosh wrote the first general introduction to Mesopotamia that covers all four of the area's major ancient civilizations―Sumer, Akkad, Assyria, and Babylonia."
+        }
+        
+    ],
   reducers: {
-    addBook: (books, action) => {
+    addNotes: (notes, action) => {
       let newBook = action.payload;
-      newBook.id = books.length ? Math.max(...books.map(book => book.id)) + 1 : 1; 
-      books.push(newBook);
-
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-
-      // add logic to add books
+      newBook.id = notes.length ? Math.max(...notes.map(book => book.id)) + 1 : 1; 
+      notes.push(newBook);
     },
-    eraseBook: (books, action) => {
-        return books.filter(book => book.id != action.payload);
-    },
-    toggleRead: (books, action) => {
-        books.map(book => {
-          if (book.id == action.payload) {
-            book.isRead = !book.isRead;
-          }
-        });
+    eraseNote: (notes, action) => {
+        return notes.filter(book => book.id != action.payload);
     }
   }
 })
 
-// Export the generated action creators for use in components
-export const { addBook, eraseBook, toggleRead } = booksSlice.actions;
+export const { addNote, eraseNote } = notesSlice.actions;
 
-export const selectBooks = state => state.books;
+export const selectNotes = state => state.notes;
 
-
-// Export the slice reducer for use in the store configuration
-export default booksSlice.reducer;
+export default notesSlice.reducer;

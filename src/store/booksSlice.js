@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-// Slices contain Redux reducer logic for updating state, and
-// generate actions that can be dispatched to trigger those updates.
 export const booksSlice = createSlice({
   name: 'books',
   initialState: [
@@ -48,13 +46,6 @@ export const booksSlice = createSlice({
       let newBook = action.payload;
       newBook.id = books.length ? Math.max(...books.map(book => book.id)) + 1 : 1; 
       books.push(newBook);
-
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-
-      // add logic to add books
     },
     eraseBook: (books, action) => {
         return books.filter(book => book.id != action.payload);
