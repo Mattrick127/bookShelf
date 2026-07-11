@@ -13,15 +13,21 @@ function Notes(bookId) {
 
             <h2>Reader's Notes</h2>
 
-            <div className="notes">
-                {notes.map(note => 
-                    <div key={note.id} className="note">
-                        <div className="erase-note">Erase note</div>
-                        <h3>{note.title}</h3>
-                        <p>{note.text}</p>
+                {notes.length ? 
+                    <div className="notes">
+                        {notes.map(note => 
+                            <div key={note.id} className="note">
+                                <div className="erase-note">Erase note</div>
+                                <h3>{note.title}</h3>
+                                <p>{note.text}</p>
+                            </div>
+                            )}
                     </div>
-                    )}
-            </div>
+
+                    :
+
+                    <p>This book doesn't have notes yet. Use the form below to add notes to this book.</p>
+                }
 
             <details>
                 <summary>Add a note</summary>
