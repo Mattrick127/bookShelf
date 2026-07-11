@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
 import booksReducer from './booksSlice.js';
 import notesReducer from './notesSlice.js';
 

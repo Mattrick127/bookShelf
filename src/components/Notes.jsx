@@ -2,8 +2,7 @@ import {useSelector} from 'react-redux';
 import {selectNotes} from '../store/notesSlice.js';
 
 function Notes() {
-    
-   
+
 
     const notes = useSelector(selectNotes);
     

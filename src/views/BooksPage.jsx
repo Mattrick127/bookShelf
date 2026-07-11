@@ -1,7 +1,7 @@
 import Book from '../components/Book.jsx';
 import Header from '../components/Header.jsx';
-import { useSelector } from 'react-redux';
-import { selectBooks } from '../store/booksSlice.js';
+import {useSelector} from 'react-redux';
+import {selectBooks} from '../store/booksSlice.js';
 
 function BooksPage() {
 
