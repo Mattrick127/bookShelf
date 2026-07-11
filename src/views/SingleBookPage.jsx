@@ -51,7 +51,7 @@ function SingleBookPage() {
                         </div>
                 </div>
 
-                <Notes />
+                <Notes bookId={id} />
 
             </div>
             

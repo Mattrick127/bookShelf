@@ -1,10 +1,10 @@
 import {useSelector} from 'react-redux';
 import {selectNotes} from '../store/notesSlice.js';
 
-function Notes() {
+function Notes(bookId) {
 
 
-    const notes = useSelector(selectNotes);
+    const notes = useSelector(selectNotes).filter(note => note.book_id == bookId);
     
     return (
       <>

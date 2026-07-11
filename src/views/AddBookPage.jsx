@@ -17,7 +17,7 @@ function AddBookPage() {
             cover: document.querySelector('input[name=cover]').value,
             isRead: false,
             author: document.querySelector('input[name=author]').value,
-            synopsis: document.querySelector('textarea[name=synopsis]').value,
+            synopsis: document.querySelector('textarea[name=synopsis]').value
         }
 
         if (newBook.title && newBook.cover && newBook.author) { 
